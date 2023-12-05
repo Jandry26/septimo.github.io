@@ -9,21 +9,44 @@
 
 <h2>Formulario de Contacto</h2>
 
-<form action="/procesar_formulario" method="post">
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre" required>
-
-  <br>
-  <label for="email">Correo Electrónico:</label>
-  <input type="email" id="email" name="email" required>
-
-  <br>
-  <label for="mensaje">Mensaje:</label>
-  <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-
-  <br>
-  <input type="submit" value="Enviar">
+<form id="crud-form" action="">
+    <label for="">nombre:</label>
+    <input type="text" id="nombre">
+    <label for="">edad:</label>
+    <input type="number" id="edad">
+    <button type="button" onclick="crearRegistro">crear</button>
 </form>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"; 
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAmZ4LI7OzG6vA4fgYBePgUbdCKfuvxBlk",
+      authDomain: "conexion-943da.firebaseapp.com",
+      databaseURL: "https://conexion-943da-default-rtdb.firebaseio.com",
+      projectId: "conexion-943da",
+      storageBucket: "conexion-943da.appspot.com",
+      messagingSenderId: "90019467281",
+      appId: "1:90019467281:web:2fc64d19c7622f985821b0",
+      measurementId: "G-LLG3VMV4RQ"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    window.crearRegistro = function(){
+        const nombre = document.getElementById("nombre").value;
+        const edad = document.getElementById("edad").value;
+        console.log(nombre, edad);
+    }
+
+  </script>
 
 </body>
 </html>
